@@ -7,7 +7,7 @@
     body {
       font-family: Arial, sans-serif;
       margin: 40px;
-      background: #1a0033; /* fundo roxo bem escuro */
+      background: #ff007f; /* fundo rosa neon */
       color: #fff;
     }
     textarea {
@@ -15,6 +15,7 @@
       height: 200px;
       padding: 10px;
       font-size: 16px;
-      re
+      border: 2px solid #000; /* bo*
+
 
 
