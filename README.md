@@ -7,88 +7,14 @@
     body {
       font-family: Arial, sans-serif;
       margin: 40px;
-      background: #f0f0f0;
+      background: #1a0033; /* fundo roxo bem escuro */
+      color: #fff;
     }
     textarea {
       width: 100%;
       height: 200px;
       padding: 10px;
       font-size: 16px;
-      resize: vertical;
-      border: 2px solid #6a0dad; /* roxo nas bordas */
-      border-radius: 8px;
-    }
-    button {
-      padding: 10px 20px;
-      margin-top: 10px;
-      font-size: 16px;
-      background-color: #6a0dad; /* roxo no botão */
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #4b0082; /* tom de roxo mais escuro */
-    }
-    .resultado {
-      margin-top: 20px;
-      padding: 10px;
-      background: #fff;
-      border: 2px solid #000; /* preto nas bordas */
-      border-radius: 8px;
-    }
-    .palavra {
-      display: inline-block;
-      background: #e0e0ff;
-      margin: 4px;
-      padding: 6px 10px;
-      border-radius: 6px;
-      color: #6a0dad; /* cor roxa para as palavras */
-    }
-  </style>
-</head>
-<body>
-  <h1>Extrator de Palavras-chave</h1>
-  <textarea id="texto" placeholder="Cole seu texto aqui..."></textarea>
-  <br>
-  <button onclick="extrairPalavrasChave()">Extrair</button>
-  <div class="resultado" id="resultado"></div>
+      re
 
-  <script>
-    const stopwords = [
-      'de', 'a', 'o', 'que', 'e', 'do', 'da', 'em', 'um', 'para', 'com', 'não', 'uma', 'os', 'no', 'se', 'na',
-      'por', 'mais', 'as', 'dos', 'como', 'mas', 'foi', 'ao', 'ele', 'das', 'tem', 'isso', 'são', 'sua', 'ou', 'ser',
-      'quando', 'muito', 'há', 'nos', 'já', 'está', 'eu', 'também', 'só', 'pelo', 'pela', 'até', 'isso', 'seu', 'sua',
-      'me', 'te', 'nos', 'lhe', 'eles', 'elas', 'meu', 'minha', 'teu', 'tua', 'nosso', 'nossa', 'deles', 'delas'
-    ];
-
-    function extrairPalavrasChave() {
-      const texto = document.getElementById('texto').value.toLowerCase();
-      const palavras = texto.match(/\b[\wáéíóúãõç]+\b/g);
-      const contagem = {};
-
-      palavras?.forEach(palavra => {
-        if (!stopwords.includes(palavra) && palavra.length > 2) {
-          contagem[palavra] = (contagem[palavra] || 0) + 1;
-        }
-      });
-
-      const resultadoDiv = document.getElementById('resultado');
-      resultadoDiv.innerHTML = '<h3>Palavras-chave encontradas:</h3>';
-
-      const palavrasOrdenadas = Object.entries(contagem)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 20);
-
-      palavrasOrdenadas.forEach(([palavra, freq]) => {
-        const span = document.createElement('span');
-        span.className = 'palavra';
-        span.textContent = `${palavra} (${freq})`;
-        resultadoDiv.appendChild(span);
-      });
-    }
-  </script>
-</body>
-</html>
 
