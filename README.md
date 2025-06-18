@@ -6,7 +6,7 @@
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      background: #ff66b2; /* fundo rosa suave */
+      background: #ff66b2; /* Fundo rosa suave */
       color: #fff;
       margin: 0;
       padding: 0;
@@ -16,6 +16,7 @@
       justify-content: center;
       height: 100vh;
       text-align: center;
+      box-sizing: border-box;
     }
 
     h1 {
@@ -52,12 +53,13 @@
       border-radius: 30px;
       cursor: pointer;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      transition: background-color 0.3s ease, transform 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     button:hover {
       background-color: #ff66b2; /* Rosa suave no hover */
       transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* Sombra mais intensa */
     }
 
     .resultado {
@@ -68,27 +70,29 @@
       color: #333;
       width: 80%;
       max-width: 600px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave nos resultados */
     }
 
     .palavra {
       display: inline-block;
       background: #ff99cc; /* Fundo rosa claro para as palavras */
-      color: #ff007f; /* Texto rosa escuro */
+      color: #000; /* Texto preto */
       margin: 8px;
       padding: 8px 12px;
       border-radius: 12px;
       font-weight: bold;
       font-size: 1.1em;
-      transition: transform 0.3s ease, background-color 0.3s ease;
+      transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
 
     .palavra:hover {
       background-color: #ff66b2; /* Cor de fundo rosa suave no hover */
       transform: scale(1.1);
       color: #fff; /* Cor do texto muda para branco */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra mais forte ao passar o mouse */
     }
 
-    /* Adicionando uma sombra suave para o fundo */
     .resultado h3 {
       font-size: 1.5em;
       color: #ff007f;
@@ -132,11 +136,12 @@
       palavrasOrdenadas.forEach(([palavra, freq]) => {
         const span = document.createElement('span');
         span.className = 'palavra';
-        span.textContent = `${palavra} (${freq})`; // Exibe a palavra e sua contagem
+        span.innerHTML = `💡 ${palavra} (${freq})`; // Adiciona o emoji de lâmpada junto com a palavra
         resultadoDiv.appendChild(span);
       });
     }
   </script>
 </body>
 </html>
+
 
