@@ -5,61 +5,94 @@
   <title>Extrator de Palavras-chave</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background: #ff007f; /* fundo rosa neon */
+      font-family: 'Arial', sans-serif;
+      background: #ff66b2; /* fundo rosa suave */
       color: #fff;
-    }
-    h1 {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
       text-align: center;
-      color: #fff;
     }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
     textarea {
-      width: 100%;
+      width: 80%;
+      max-width: 600px;
       height: 200px;
-      padding: 10px;
-      font-size: 16px;
-      resize: vertical;
-      border: 2px solid #000; /* borda preta */
+      padding: 15px;
+      font-size: 18px;
       background-color: #fff;
       color: #333;
-      border-radius: 5px;
+      border: 2px solid #ff007f; /* Borda rosa vibrante */
+      border-radius: 10px;
       margin-bottom: 20px;
+      transition: border-color 0.3s ease;
     }
+
+    textarea:focus {
+      border-color: #ff66b2; /* Cor de borda rosa mais suave ao focar */
+    }
+
     button {
-      padding: 10px 20px;
-      margin-top: 10px;
-      font-size: 16px;
-      background-color: #ff66b2; /* rosa delicado */
+      padding: 12px 25px;
+      font-size: 18px;
+      background-color: #ff007f; /* Rosa forte */
       color: #fff;
       border: none;
-      border-radius: 5px;
+      border-radius: 30px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
+
     button:hover {
-      background-color: #ff3385; /* rosa mais escuro para o hover */
+      background-color: #ff66b2; /* Rosa suave no hover */
+      transform: scale(1.05);
     }
+
     .resultado {
-      margin-top: 20px;
-      padding: 10px;
-      background: #fff;
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
       color: #333;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+      width: 80%;
+      max-width: 600px;
     }
+
     .palavra {
       display: inline-block;
-      background: #ff99cc; /* rosa claro para as palavras */
-      margin: 4px;
-      padding: 6px 10px;
-      border-radius: 6px;
+      background: #ff99cc; /* Fundo rosa claro para as palavras */
+      color: #ff007f; /* Texto rosa escuro */
+      margin: 8px;
+      padding: 8px 12px;
+      border-radius: 12px;
       font-weight: bold;
-      color: #ff007f; /* letra em rosa neon */
+      font-size: 1.1em;
+      transition: transform 0.3s ease, background-color 0.3s ease;
     }
+
     .palavra:hover {
-      background: #ff66b2; /* rosa delicado no hover */
-      color: #fff; /* muda a cor do texto quando passa o mouse */
+      background-color: #ff66b2; /* Cor de fundo rosa suave no hover */
+      transform: scale(1.1);
+      color: #fff; /* Cor do texto muda para branco */
+    }
+
+    /* Adicionando uma sombra suave para o fundo */
+    .resultado h3 {
+      font-size: 1.5em;
+      color: #ff007f;
+      margin-bottom: 15px;
     }
   </style>
 </head>
@@ -93,19 +126,17 @@
       resultadoDiv.innerHTML = '<h3>Palavras-chave encontradas:</h3>';
 
       const palavrasOrdenadas = Object.entries(contagem)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 20);
+        .sort((a, b) => b[1] - a[1]) // Ordena as palavras por frequência
+        .slice(0, 20); // Exibe as 20 palavras mais frequentes
 
       palavrasOrdenadas.forEach(([palavra, freq]) => {
         const span = document.createElement('span');
         span.className = 'palavra';
-        span.textContent = `${palavra} (${freq})`;
+        span.textContent = `${palavra} (${freq})`; // Exibe a palavra e sua contagem
         resultadoDiv.appendChild(span);
       });
     }
   </script>
 </body>
 </html>
-
-
 
